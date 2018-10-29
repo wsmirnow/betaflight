@@ -23,14 +23,13 @@
 #undef USE_DSHOT_DMAR           // OMNIBUS (F3) does not benefit from burst Dshot
 
 // Removed to make the firmware fit into flash (in descending order of priority):
-#undef USE_GYRO_OVERFLOW_CHECK
-#undef USE_GYRO_LPF2
+//#undef USE_GYRO_OVERFLOW_CHECK
+//#undef USE_GYRO_LPF2
 
 //#undef USE_ITERM_RELAX
-#undef USE_RC_SMOOTHING_FILTER
+//#undef USE_RC_SMOOTHING_FILTER
 
-#undef USE_LED_STRIP
-
+//#undef USE_LED_STRIP
 #undef USE_HUFFMAN
 #undef USE_PINIO
 #undef USE_PINIOBOX
@@ -75,9 +74,9 @@
 #define BMP280_SPI_INSTANCE     SPI1
 #define BMP280_CS_PIN           PA13
 
-#define USE_BARO
-#define USE_BARO_BMP280
-#define USE_BARO_SPI_BMP280
+//#define USE_BARO
+//#define USE_BARO_BMP280
+//#define USE_BARO_SPI_BMP280
 
 //#define USE_RANGEFINDER
 //#define USE_RANGEFINDER_HCSR04
@@ -142,6 +141,7 @@
 #define SPI2_MISO_PIN           PB14
 #define SPI2_MOSI_PIN           PB15
 
+/*
 #define USE_SDCARD
 
 #define SDCARD_DETECT_INVERTED
@@ -161,7 +161,8 @@
 #endif
 
 // Performance logging for SD card operations:
-// #define AFATFS_USE_INTROSPECTIVE_LOGGING
+#define AFATFS_USE_INTROSPECTIVE_LOGGING
+*/
 
 #define USE_ADC
 #define DEFAULT_VOLTAGE_METER_SOURCE VOLTAGE_METER_ADC
@@ -173,13 +174,14 @@
 //#define RSSI_ADC_PIN                PB1
 //#define ADC_INSTANCE                ADC3
 
-#define USE_TRANSPONDER
-#define REDUCE_TRANSPONDER_CURRENT_DRAW_WHEN_USB_CABLE_PRESENT
+//#define USE_TRANSPONDER
+//#define REDUCE_TRANSPONDER_CURRENT_DRAW_WHEN_USB_CABLE_PRESENT
 
-#define ENABLE_BLACKBOX_LOGGING_ON_SDCARD_BY_DEFAULT
+//#define ENABLE_BLACKBOX_LOGGING_ON_SDCARD_BY_DEFAULT
 
-#define DEFAULT_RX_FEATURE      FEATURE_RX_PPM
-#define DEFAULT_FEATURES        (FEATURE_OSD)
+#define DEFAULT_RX_FEATURE      FEATURE_RX_SERIAL
+#define RX_CHANNELS_TAER
+#define DEFAULT_FEATURES        (FEATURE_OSD|FEATURE_LED_STRIP|FEATURE_AIRMODE|FEATURE_TELEMETRY)
 
 // Disable rarely used buttons in favor of flash space
 //#define USE_BUTTONS
